@@ -1,0 +1,110 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    border-radius: 7px 7px 7px 7px;
+}
+body {
+    background-color: #d3d2d2;
+}
+.container {
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+form {
+    width: 700px;
+    height: 500px;
+    background-color: #ffffff;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: calc(30% + 3.1em);
+    left: 50%;
+    padding: 0 3.1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0.5em;
+}
+form label {
+    display: block;
+    margin-bottom: 0.2em;
+    font-weight: 600;
+    color: #2e0d30;
+
+}
+form input {
+    font-size: 0.95em;
+    font-weight: 400;
+    color: #3f3554;
+    padding: 0.3em;
+    border: none;
+    /*border: 0.12em solid #3f3554;*/
+    outline: none;
+    background-color: lightgray;
+}
+form input:focus {
+    border-color: #f4c531;
+    /*border-bottom: 0.12em solid #3f3554;*/
+
+}
+form input:not(:last-child) {
+    margin-bottom: 0.9em;
+}
+form button {
+    font-size: 0.95em;
+    padding: 0.8em 0;
+    border-radius: 2em;
+    border: none;
+    outline: none;
+    background-color: #2c2b2b;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    margin-top: 0.8em;
+}
+.dh{
+    border: 0.12em solid #3f3554;
+    background-color: lightgray;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.dh1{
+   align-content: center;
+    /*border: 0.12em solid #3f3554;*/
+
+}
+#mail{
+    float: right;
+    border: 0.12em solid #3f3554;
+    position: relative;
+    width: 50%;
+    background-color: lightgray;
+}
+#num{
+    float: left;
+    width: 40%;
+    position: absolute;
+    border: 0.12em solid #3f3554;
+    background-color: lightgray;
+
+
+}
+form select {
+    font-size: 0.95em;
+    font-weight: 400;
+    color: #3f3554;
+    /*padding: 0.3em;*/
+    border: none;
+    /*border: 0.12em solid #3f3554;*/
+    outline: none;
+    background-color: lightgray;
+    margin-top: 5px;
+    width: 590px;
+
+}
