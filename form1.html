@@ -3,41 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-  <link rel="stylesheet" href="styleform1.css">
+    <link rel="stylesheet" href="styleform1.css">
+
 </head>
 <body>
 <div class="container">
-    <form>
-        <h2 style="text-align: center">Contac Us</h2>
-<!--        <div id="1">-->
-        <label for="username"> </label>
-        <div class="dh"><span> USER*</span><br>
-            <input type="text" id="username" placeholder=" Username"  />
+    <form id="contact-form">
+        <h2 style="text-align: center">Contact Us</h2>
+        <div class="dh">
+            <label for="username">User*</label><br>
+            <input type="text" id="username" placeholder="Username" />
+            <span id="username-error" class="error"></span>
         </div>
-<!--        </div>-->
-<!--        <label for="email">Enter your password</label>-->
-        <div class="dh1 ">
-           <div id="mail"> <span> EMAIL*</span><br>
-               <input type="text" id="email" placeholder="Enter Your Email" /></div>
-            <div id="num"><span> PHONE*</span><br>
-                <input type="number" id="phone" placeholder=" Enter Number Phone"  /></div>
+        <div class="dh1">
+            <div id="mail">
+                <label for="email">Email*</label><br>
+                <input type="text" id="email" placeholder="Enter Your Email" />
+                <span id="email-error" class="error"></span>
+            </div>
+            <div id="num">
+                <label for="phone">Phone*</label><br>
+                <input type="number" id="phone" placeholder="Enter Number Phone" />
+                <span id="phone-error" class="error"></span>
+            </div>
         </div>
-       <div id="ser" class="dh">
-           <span>NEEDED SERVICES</span><br>
-           <label for="chooses"> Please chooses</label>
-           <select name="neededservices" id="chooses" size="2" > </select>
-       </div>
-        <div class="dh"><span> MESSAGE</span><br>
-            <textarea name="message" rows="10" cols="30" style="width: 597px; background-color: lightgray;border: none">
-               Your message here</textarea>
+        <div id="ser" class="dh">
+            <label for="chooses">Needed Services</label><br>
+            <select name="neededservices" id="chooses" size="2"></select>
+            <span id="chooses-error" class="error"></span>
         </div>
-
-
-
-        <button>SUBMIT </button>
+        <div class="dh">
+            <label for="message">Message</label><br>
+            <textarea name="message" id="message" rows="10" cols="30" style="width: 597px; background-color: lightgray; border: none;">Your message here</textarea>
+            <span id="message-error" class="error"></span>
+        </div>
+        <button type="submit">Submit</button>
     </form>
-
 </div>
+
+<script>
+    const form = document.getElementById('contact-form');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const username = document.getElementById('username');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+        const chooses = document.getElementById('chooses');
+        const message = document.getElementById('message');
+
+        const usernameError = document.getElementById('username-error');
+        const emailError = document.getElementById('email-error');
+        const phoneError = document.getElementById('phone-error');
+        const choosesError = document.getElementById('chooses-error');
+        const messageError = document.getElementById('message-error');
+
+        // Reset error messages
+        usernameError.textContent = '';
+        emailError.textContent = '';
+        phoneError.textContent = '';
+        choosesError.textContent = '';
+        messageError.textContent = '';
+
+        // Check username
+        if (username.value.trim() === '') {
+            usernameError.textContent = 'Username is required.';
+            username.classList.add('error');
+        } else {
+            username.classList.remove('error');
+        }
+
+        // Check email
+        if (email.value.trim() === '') {
+            emailError.textContent = 'Email is required.';
+            email.classList.add('error');
+        } else {
+            email.classList.remove('error');
+        }
+
+        // Check phone
+        if (phone.value.trim() === '') {
+            phoneError.textContent = 'Phone is required.';
+            phone.classList.add('error');
+        } else {
+            phone.classList.remove('error');
+        }
+
+        // Check chooses
+        if (chooses.value.trim() === '') {
+            choosesError.textContent = 'Please select a needed service.';
+            chooses.classList.add('error');
+        } else {
+            chooses.classList.remove('error');
+        }
+
+        // Check message
+        if (message.value.trim() === '' || message.value.trim() === 'Your message here') {
+            messageError.textContent = 'Message is required.';
+            message.classList.add('error');
+        } else {
+            message.classList.remove('error');
+        }
+
+        // If there are no errors, submit the form
+        if (!username.classList.contains('error') &&
+            !email.classList.contains('error') &&
+            !phone.classList.contains('error') &&
+            !chooses.classList.contains('error') &&
+            !message.classList.contains('error')) {
+            form.submit();
+        }
+    });
+</script>
 
 </body>
 </html>
